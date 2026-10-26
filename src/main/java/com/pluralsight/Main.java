@@ -2,6 +2,7 @@ package com.pluralsight;
 
 import java.util.*;
 
+
 public class Main {
     static Scanner scanner = new Scanner(System.in);
 
