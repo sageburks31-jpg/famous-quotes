@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.util.*;
+import java.lang.*;
 
 public class Main {
 
@@ -23,29 +24,29 @@ public class Main {
     }
 
     private static void mainDisplay(){
-        String abcs = "a b c d e f g h i j k l m n o p q r s t u v w x y z";
         println("""
                 please enter 1-10 to see a famous quote in register""");
         try {
             String[] listFamousQuotas1 = listFamousQuotas;
-            String[] abcList = abcs.split(" ");
             String result = "";
-
-            for (String i: abcList){
-                print("| enter here ->: ");
-                String enterResult=scanner.nextLine();
-
-                if (enterResult.equals(i)){
-                    result = enterResult;
-                    break;
-                } else {
-                    println("*Invalid input please enter a number(1-10)*");
+            print("| enter here ->: ");
+            String enterResult=scanner.nextLine();
+            boolean isCorrect = false;
+            while (!isCorrect) {
+                switch (enterResult){
+                    case "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" -> {
+                        result=enterResult;
+                        isCorrect=true;
+                    }
+                    default -> {
+                        println("*Invalid input please enter a number(1-10)*");
+                        print("| enter here ->: ");
+                        enterResult=scanner.nextLine();
+                    }
                 }
             }
-            int index = Integer.getInteger(result);
+            int index = Integer.decode(result);
             index--;
-            println(String.valueOf(index));
-
             System.out.println(listFamousQuotas1[index]);
         } catch (Exception e) {
             e.printStackTrace();
