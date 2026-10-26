@@ -1,10 +1,8 @@
 package com.pluralsight;
 
 import java.util.*;
-import java.lang.*;
 
 public class Main {
-
     static Scanner scanner = new Scanner(System.in);
 
     static String[] listFamousQuotas = {
@@ -29,11 +27,14 @@ public class Main {
         try {
             String[] listFamousQuotas1 = listFamousQuotas;
             String result = "";
+
             print("| enter here ->: ");
             String enterResult=scanner.nextLine();
             boolean isCorrect = false;
+
             while (!isCorrect) {
                 switch (enterResult){
+
                     case "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" -> {
                         result=enterResult;
                         isCorrect=true;
@@ -48,6 +49,7 @@ public class Main {
             int index = Integer.decode(result);
             index--;
             System.out.println(listFamousQuotas1[index]);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
